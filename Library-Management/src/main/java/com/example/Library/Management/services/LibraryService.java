@@ -1,6 +1,7 @@
 package com.example.Library.Management.services;
 
 import com.example.Library.Management.enums.BookStatus;
+import com.example.Library.Management.exceptions.BookNotFoundException;
 import com.example.Library.Management.exceptions.LibraryNotFoundException;
 import com.example.Library.Management.models.BookItem;
 import com.example.Library.Management.models.Library;
@@ -51,6 +52,14 @@ public class LibraryService {
         }
         else{
             throw new LibraryNotFoundException("No such library found");
+        }
+    }
+
+    public BookItem getBook(String bookId){
+        if(books.containsKey(bookId)){
+            return books.get(bookId);
+        }else{
+            throw new BookNotFoundException("No such book exists");
         }
     }
 

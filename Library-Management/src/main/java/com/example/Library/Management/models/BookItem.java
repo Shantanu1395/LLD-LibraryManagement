@@ -26,4 +26,9 @@ public class BookItem extends Book{
         this.barcode = barcode;
         this.rack = rack;
     }
+
+    public void setBookStatus(BookStatus bookStatus){
+        this.bookStatus = bookStatus;
+    }
+
 }

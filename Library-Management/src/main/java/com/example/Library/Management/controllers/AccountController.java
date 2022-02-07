@@ -26,8 +26,8 @@ public class AccountController {
         return this.accountService.getMemberAccountById(accountId);
     }
 
-    public List<Account> getMemberAccounts(){
-        return accountService.getMemberAccounts();
+    public List<LibraryCard> getMemberLibraryCards(){
+        return accountService.getMemberLibraryCards();
     }
 
 }

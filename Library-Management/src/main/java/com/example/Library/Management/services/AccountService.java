@@ -3,6 +3,7 @@ package com.example.Library.Management.services;
 import com.example.Library.Management.enums.AccountStatus;
 import com.example.Library.Management.enums.LibraryCardStatus;
 import com.example.Library.Management.enums.LibraryCardType;
+import com.example.Library.Management.exceptions.LibraryCardNotFoundException;
 import com.example.Library.Management.models.*;
 import lombok.NonNull;
 
@@ -51,7 +52,15 @@ public class AccountService {
         return members.get(accountId);
     }
 
-    public List<Account> getMemberAccounts() {
-        return members.values().stream().collect(Collectors.toList());
+    public List<LibraryCard> getMemberLibraryCards() {
+        return libraryCards.values().stream().collect(Collectors.toList());
+    }
+
+    public LibraryCard getLibraryCardById(String libraryCardId){
+        if(libraryCards.containsKey(libraryCardId)){
+            return libraryCards.get(libraryCardId);
+        }else{
+            throw new LibraryCardNotFoundException("Library card does not exist");
+        }
     }
 }
